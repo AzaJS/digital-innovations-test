@@ -1,0 +1,8 @@
+@import "variables";
+
+.cell {
+  background-color: $cell-color;
+  width: $cell-width;
+  height: $cell-height;
+  gap: 2px;
+}
