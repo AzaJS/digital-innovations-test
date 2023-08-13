@@ -1,8 +1,58 @@
 @import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.calendar-cells {
+  height: $calendar-height;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: $cell-gap;
+}
 
 .cell {
   background-color: $cell-color;
   width: $cell-width;
   height: $cell-height;
-  gap: 2px;
+  @include text-style;
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+.root-style {
+  display: flex;
+  gap: 3px;
+}
+
+.left-panel {
+  margin-top: $cell-height;
+  display: flex;
+  flex-direction: column;
+  height: $calendar-height;
+  @include text-style;
+  gap: $cell-gap;
+  .p {
+    height: $cell-height;
+    width: $cell-width;
+  }
+}
+
+.empty-block {
+  height: $cell-height;
+}
+.months {
+  grid-area: months;
+}
+.months {
+  @include text-style;
+  span {
+    display: inline-block;
+    width: 20px * 4;
+  }
 }
