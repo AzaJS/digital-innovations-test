@@ -7,16 +7,13 @@ import Calendar from "./components/Calendar";
 const App = () => {
   const dispatch = useDispatch();
 
-  const datas = useSelector((state) => state.contributions);
-
   useEffect(() => {
     dispatch(getContributions());
   }, []);
+
   const days = useSelector((state) => state.days.allDays);
 
   const firstWeek = days.slice(0, 7);
-
-  console.log(datas);
 
   return (
     <div>

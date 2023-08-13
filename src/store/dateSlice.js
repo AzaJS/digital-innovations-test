@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { allDays: [] };
+const initialState = { allDays: [], formattedDays: [] };
 
 export const daysSlice = createSlice({
   name: "date",
@@ -9,6 +9,9 @@ export const daysSlice = createSlice({
     getDaysSuccess(state, action) {
       const { payload } = action;
       state.allDays = payload;
+      state.formattedDays = payload.map((day) => {
+        return day.toISOString().slice(0, 10);
+      });
     },
   },
 });
